@@ -10,6 +10,7 @@ terms. By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 
+
 ## Code
 
 > fibs = 0:1:(zipWith (+) fibs (tail fibs))
@@ -22,4 +23,4 @@ four million, find the sum of the even-valued terms.
 
 ## Answer
 
-4613732
+    4613732
