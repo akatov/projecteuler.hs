@@ -17,10 +17,11 @@ Code
 
 > fibs = 0 : scanl (+) 1 fibs
 
-> res = sum . filter (\x -> mod x 2 == 0) . takeWhile (<= 4000000) $ fibs
-
-> main = do
->   return res
+> main = do (return .
+>            sum .
+>            filter (\x -> mod x 2 == 0) .
+>            takeWhile (<= 4000000))
+>           $ fibs
 
 
 Answer

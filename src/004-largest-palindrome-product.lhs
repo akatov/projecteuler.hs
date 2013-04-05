@@ -9,23 +9,18 @@ the product of two 2-digit numbers is 9009 = 91 x 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 
 
-999 * 999
+Idea
+----
 
-999 * 998
+Generate the pairs in the following order to assure (decreasing) monotonicity:
 
-998 * 998
-999 * 997
-
-998 * 997
-999 * 996
-
-997 * 997
-998 * 996
-999 * 995
-
-997 * 996
-998 * 995
-999 * 994
+    999 * 999
+    999 * 998
+    998 * 998, 999 * 997
+    998 * 997, 999 * 996
+    997 * 997, 998 * 996, 999 * 995
+    997 * 996, 998 * 995, 999 * 994
+    ...
 
 Code
 ----

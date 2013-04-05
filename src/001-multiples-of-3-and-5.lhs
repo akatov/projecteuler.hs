@@ -12,10 +12,11 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 Code
 ----
 
-> res = sum . filter (\x -> mod x 5 == 0 || mod x 3 == 0). takeWhile (< 1000) $ [1..]
-
-> main = do
->  return res
+> main = do (return .
+>            sum .
+>            filter (\x -> mod x 5 == 0 || mod x 3 == 0) .
+>            takeWhile (< 1000))
+>           $ [1..]
 
 
 Answer
