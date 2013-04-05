@@ -24,6 +24,7 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred
 divisors?
 
+
 Code
 ----
 
@@ -36,10 +37,12 @@ Code
 > main = do
 >   return . head . filter (\n -> numDivisors n > 500) $ triangularNumbers
 
+
 Answer
 ------
 
     76576500
+
 
 Performance
 -----------
