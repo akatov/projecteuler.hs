@@ -13,8 +13,8 @@ Code
 
 > import Data.Numbers.Primes
 
-> main = do
->   return . sum . takeWhile (< 2000000) $ primes
+> main = let result = sum . takeWhile (< 2000000) $ primes
+>        in return result
 
 
 Answer

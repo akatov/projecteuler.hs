@@ -31,11 +31,11 @@ Code
 > triangularNumbers = scanl1 (+) [1..]
 
 > numDivisors n = 2 * length [ x
->                            | x <- [1..(floor . sqrt . fromIntegral $ n)]
+>                            | x <- [1 .. (floor . sqrt . fromIntegral $ n)]
 >                            , mod n x == 0 ]
 
-> main = do
->   return . head . filter (\n -> numDivisors n > 500) $ triangularNumbers
+> main = let res = head $ filter (\ n -> numDivisors n > 500) triangularNumbers
+>        in return res
 
 
 Answer

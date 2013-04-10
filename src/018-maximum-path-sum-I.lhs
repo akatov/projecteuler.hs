@@ -59,7 +59,8 @@ Code
 > step lower higher = let maxs = zipWith max lower (tail lower)
 >                     in zipWith (+) maxs higher
 
-> main = do return . head . foldl1 step $ reverse triangle
+> main = let result = head . foldl1 step $ reverse triangle
+>        in return result
 
 
 Answer

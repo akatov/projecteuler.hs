@@ -37,7 +37,8 @@ Code
 
 > digits = discreteLog 10
 
-> main = do return . length $ takeWhile (\ x -> digits x < 1000) fibs
+> main = let result = length $ takeWhile (\ x -> digits x < 1000) fibs
+>        in return result
 
 
 Answer

@@ -14,8 +14,8 @@ Code
 
 > import Data.Numbers.Primes
 
-> main = do
->   return (primes !! 10000)
+> main = let result = primes !! 10000
+>        in return result
 
 
 Answer

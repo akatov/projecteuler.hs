@@ -19,7 +19,9 @@ Code
 
 > import Divisors
 
-> main = return . sum . filter amicable $ [1 .. 10000]
+> main = let result = sum . filter amicable $ [1 .. 10000]
+>        in return result
+
 
 Answer
 ------

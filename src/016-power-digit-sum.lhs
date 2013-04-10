@@ -12,10 +12,10 @@ Code
 ----
 
 > sumOfDigits :: Integer -> Integer
-> sumOfDigits = sum . map read . map (:[]) . show
+> sumOfDigits = sum . map (read . (:[])) . show
 
-> main = do
->   return . sumOfDigits $ 2^1000
+> main = let result = sumOfDigits $ 2^1000
+>        in return result
 
 
 Answer

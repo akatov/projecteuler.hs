@@ -21,7 +21,7 @@ Code
 > insertAt (x:xs) y n = x : insertAt xs y (n-1)
 
 > selectEach [x] = [(x, [])]
-> selectEach (x:xs) = let f (y,ys) = (y, (x:ys))
+> selectEach (x:xs) = let f (y,ys) = (y, x:ys)
 >                     in (x, xs) : map f (selectEach xs)
 
 > -- | the argument is assumed to be in increasing order
@@ -30,9 +30,10 @@ Code
 >                   in concatMap f $ selectEach xs
 
 > pToInt [] = 0
-> pToInt (x:xs) = 10 ^ (length xs) * x + pToInt xs
+> pToInt (x:xs) = 10 ^ length xs * x + pToInt xs
 
-> main = do return . pToInt $ permutations [0 .. 9] !! 999999
+> main = let result = pToInt $ permutations [0 .. 9] !! 999999
+>        in return result
 
 
 Answer

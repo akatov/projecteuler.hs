@@ -41,8 +41,10 @@ Code
 > lineToInts :: String -> [Int]
 > lineToInts = map read . words
 
+> computeResult = maximum . foldl1 downStep . map lineToInts . lines
+
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/triangle.txt" []
->           return . maximum . foldl1 downStep . map lineToInts $ lines s
+>           return $ computeResult s
 
 
 Answer

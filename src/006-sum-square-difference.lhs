@@ -26,8 +26,8 @@ Code
 > differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo n =
 >     ((^2) . sum $ [1..n]) - (sum . map (^2) $ [1..n])
 
-> main = do
->        return $ differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo 100
+> main = let result = differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo 100
+>        in return result
 
 
 Answer

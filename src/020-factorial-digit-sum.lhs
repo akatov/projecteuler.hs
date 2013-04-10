@@ -14,11 +14,12 @@ Code
 ----
 
 > sumOfDigits :: Integer -> Integer
-> sumOfDigits = sum . map read . map (:[]) . show
+> sumOfDigits = sum . map (read . (:[])) . show
 
 > factorial n = product [1 .. n]
 
-> main = do return . sumOfDigits . factorial $ 100
+> main = let result = sumOfDigits . factorial $ 100
+>        in return result
 
 
 Answer

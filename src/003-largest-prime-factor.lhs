@@ -13,8 +13,8 @@ Code
 
 > import Data.Numbers.Primes
 
-> main = do
->   return . last . primeFactors $ 600851475143
+> main = let result = last . primeFactors $ 600851475143
+>        in return result
 
 
 Answer

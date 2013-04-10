@@ -35,12 +35,13 @@ Code
 >                       -- longest cycle of different remainders is y
 >                   in if decimable y
 >                      then 0
->                      else (elemIndices (ms !! 0) ms) !! 1
+>                      else elemIndices (head ms) ms !! 1
 
 > main = let cs = map (cycleLength 1) [2..999]
 >            m = maximum cs
 >            i = head $ elemIndices m cs
->        in do return (i+2)
+>            r = i + 2
+>        in return r
 
 
 Answer

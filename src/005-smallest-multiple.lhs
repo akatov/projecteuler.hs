@@ -15,6 +15,7 @@ Code
 
 > import Data.Numbers.Primes
 > import Data.List
+> import Control.Arrow
 
 > f ps [] = ps
 > f [] qs = qs
@@ -22,16 +23,15 @@ Code
 >                         | p < q = (p,a) : f ps ((q,b):qs)
 >                         | otherwise = (p, max a b) : f ps qs
 
-> highestCommonExponents = foldr1 f . (map $
->                                          map (\ x -> (head x, length x)) .
+> highestCommonExponents = foldr1 f . map (map (head &&& length) .
 >                                          group .
 >                                          primeFactors)
 
 > computeProduct = let g acc (p,a) = acc * p ^ a
 >                  in foldl g 1
 
-> main = do
->   return . computeProduct . highestCommonExponents $ [1 .. 20]
+> main = let result = computeProduct . highestCommonExponents $ [1 .. 20]
+>        in return result
 
 
 Answer

@@ -32,11 +32,11 @@ Code
 >           csl n | mod n 2 == 0 = 1 + collatzSequenceLength (div n 2)
 >                 | otherwise = 1 + collatzSequenceLength (3 * n + 1)
 
-> main =
->     let csls = map collatzSequenceLength [1..]
->         mx = maximum . take 1000000 $ csls
->         Just ix = elemIndex mx csls
->     in do return (ix + 1)
+> main = let csls = map collatzSequenceLength [1..]
+>            mx = maximum . take 1000000 $ csls
+>            Just ix = elemIndex mx csls
+>            result = ix + 1
+>        in return result
 
 
 Answer

@@ -26,8 +26,9 @@ Code
 
 > pathsThruGrid x y = choose (x + y) x
 
-> main = do
->   return $ pathsThruGrid 20 20
+> main = let result = pathsThruGrid 20 20
+>        in return result
+
 
 Answer
 ------

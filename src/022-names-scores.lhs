@@ -26,8 +26,10 @@ Code
 
 > score = foldl (\ a c -> a + ord c - 64) 0 -- capital letters only
 
+> computeResult = sum . zipWith (*) [1..] . map score . sort . readNames
+
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/names.txt" []
->           return . sum . zipWith (*) [1..] $ map score . sort $ readNames s
+>           return $ computeResult s
 
 
 Answer

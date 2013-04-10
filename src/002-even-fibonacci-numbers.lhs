@@ -17,11 +17,11 @@ Code
 
 > fibs = 0 : scanl (+) 1 fibs
 
-> main = do (return .
->            sum .
->            filter (\x -> mod x 2 == 0) .
->            takeWhile (<= 4000000))
->           $ fibs
+> main = let result = (sum .
+>                      filter (\x -> mod x 2 == 0) .
+>                      takeWhile (<= 4000000))
+>                     fibs
+>        in return result
 
 
 Answer

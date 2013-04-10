@@ -37,7 +37,8 @@ Code
 
 > firstWeekdays = scanl weekdayOfNextFirst 1 months -- Sunday = 0
 
-> main = do return . length . filter (== 0) . take 1200 . drop 12 $ firstWeekdays
+> main = let r = length . filter (== 0) . take 1200 . drop 12 $ firstWeekdays
+>        in return r
 
 
 Answer

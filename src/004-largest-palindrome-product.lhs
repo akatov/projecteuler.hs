@@ -30,12 +30,12 @@ Code
 
 > f l u x y = [ (x + d) * (y - d) | d <- [0 .. min (u - x) (y - l)]]
 
-> g l u x = concat [(f l u x x), (f l u x (x - 1))]
+> g l u x = f l u x x ++ f l u x (x - 1)
 
 > h l u = concatMap (g l u) [u, u - 1 .. l]
 
-> main = do
->   return . head . filter isPalindromicNumber $ h 100 999
+> main = let result = head . filter isPalindromicNumber $ h 100 999
+>        in return result
 
 
 Answer

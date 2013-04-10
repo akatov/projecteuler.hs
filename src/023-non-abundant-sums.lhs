@@ -27,7 +27,8 @@ two abundant numbers.
 
 > isSumOfTwoAns n = not $ null [x | x <- takeWhile (< n) ans, abundant (n - x)]
 
-> main = do return . sum . filter (not . isSumOfTwoAns) $ [1 .. 28123]
+> main = let result = sum . filter (not . isSumOfTwoAns) $ [1 .. 28123]
+>        in return result
 
 
 Answer

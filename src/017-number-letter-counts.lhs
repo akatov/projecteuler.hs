@@ -48,13 +48,12 @@ Code
 >           tens = (n `div` 10) `mod` 10
 >           hundreds = (n `div` 100) `mod` 10
 
-> main = do (return .
->            length .
->            filter (/= ' ') .
->            filter (/= '-') .
->            concat .
->            map say)
->           $ [1 .. 1000]
+> main = let r = (length .
+>                 filter (/= ' ') .
+>                 filter (/= '-') .
+>                 concatMap say)
+>                [1 .. 1000]
+>        in return r
 
 
 Answer
