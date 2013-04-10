@@ -17,16 +17,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 Code
 ----
 
-> import Data.List
-
-> divisors n =
->     let limit = floor . sqrt . fromIntegral $ n
->     in (1:) . nub . concat $ [ [x, div n x] | x <- [2..limit], rem n x == 0 ]
-
-> amicable n =
->     let m = sum . divisors $ n
->         o = sum . divisors $ m
->     in o == n && m /= n
+> import Divisors
 
 > main = return . sum . filter amicable $ [1 .. 10000]
 
