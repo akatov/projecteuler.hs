@@ -26,17 +26,16 @@ Code
 > import Data.List
 > import Data.Numbers.Primes
 
-> 
-
 > longDivision x y | x == 0    = []
->                  | otherwise = let (d,m) = divMod x y
->                                in (d,m) : longDivision (m*10) y
+>                  | otherwise = let (d, m) = divMod x y
+>                                in (d, m) : longDivision (m * 10) y
 
-> cycleLength x y = let pfs = nub . primeFactors $ y
->                   in if isInfixOf pfs [2,5]
+> cycleLength x y = let decimable n = isInfixOf (nub $ primeFactors n) [2, 5]
+>                       ms = drop y . map snd $ longDivision x y
+>                       -- longest cycle of different remainders is y
+>                   in if decimable y
 >                      then 0
->                      else let ms = drop y . map snd $ longDivision x y -- longest cycle of different remainders is y
->                           in (elemIndices (ms !! 0) ms) !! 1
+>                      else (elemIndices (ms !! 0) ms) !! 1
 
 > main = let cs = map (cycleLength 1) [2..999]
 >            m = maximum cs
