@@ -21,13 +21,18 @@ in the same way?
 Code
 ----
 
+> stepLengths :: [Integer]
 > stepLengths = concatMap (replicate 4) [2,4 ..]
 
+> diagonalNumbers :: [Integer]
 > diagonalNumbers = scanl (+) 1 stepLengths
 
-> stepsForSpiralOfSize n = 4 * (div n 2) + 1
+> stepsForSpiralOfSize :: Int -> Int
+> stepsForSpiralOfSize n = 4 * div n 2 + 1
 
-> main = let result = sum $ take (stepsForSpiralOfSize 1001) diagonalNumbers
+> main :: IO ()
+> main = let result = sum
+>                   $ take (stepsForSpiralOfSize 1001) diagonalNumbers
 >        in do print result
 >              return ()
 

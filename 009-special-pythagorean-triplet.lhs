@@ -24,15 +24,21 @@ Ideas
 Code
 ----
 
+> numbersSummingTo :: Integral alpha => alpha -> [[alpha]]
 > numbersSummingTo n = [ [a, b, n - a - b]
 >                      | b <- [499, 498 .. 1]
 >                      , a <- [1 .. n - 2 * b -1]
 >                      ]
 
-> pythagoreanTriplet [a,b,c] = a^2 + b^2 == c^2
+> pythagoreanTriplet :: [Integer] -> Bool
+> pythagoreanTriplet [a,b,c] = a^(2 :: Integer) + b^(2 :: Integer) == c^(2 :: Integer)
 
-> main = let r = product . head . filter pythagoreanTriplet . numbersSummingTo $ 1000
->        in return r
+> main :: IO ()
+> main = let r = product . head . filter pythagoreanTriplet
+>              $ numbersSummingTo 1000
+>              :: Integer
+>        in do print r
+>              return ()
 
 
 Answer

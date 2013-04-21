@@ -25,12 +25,13 @@ Code
 > digitRotations :: Integer -> [Integer]
 > digitRotations = map read . rotations . show
 
+> circularPrime :: Integer -> Bool
 > circularPrime = all isPrime . digitRotations
 
-> main = let result = length .
->                     filter circularPrime .
->                     takeWhile (< 10^6) $
->                     primes
+> main :: IO ()
+> main = let result = length
+>                   $ filter circularPrime
+>                   $ takeWhile (< 10^(6 :: Integer)) primes
 >        in do print result
 >              return ()
 

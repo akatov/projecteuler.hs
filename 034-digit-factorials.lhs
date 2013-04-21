@@ -20,17 +20,15 @@ Idea
 Code
 ----
 
-> factorial :: Integer -> Integer
-> factorial n = product [1 .. n]
-
-> digits :: Integer -> [Integer]
-> digits = map (read . (:[])) . show
+> import Factorial
+> import Digits
 
 > curious :: Integer -> Bool
 > curious n =
 >     n > 2 &&
 >     n == (sum . map factorial . digits) n
 
+> main :: IO ()
 > main = let result = sum $ filter curious [1 .. 7 * factorial 9]
 >        in do print result
 >              return ()

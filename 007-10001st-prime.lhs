@@ -14,8 +14,10 @@ Code
 
 > import Data.Numbers.Primes
 
-> main = let result = primes !! 10000
->        in return result
+> main :: IO ()
+> main = let result = primes !! 10000 :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

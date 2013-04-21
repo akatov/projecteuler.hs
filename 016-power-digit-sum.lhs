@@ -11,11 +11,12 @@ What is the sum of the digits of the number 2^1000?
 Code
 ----
 
-> sumOfDigits :: Integer -> Integer
-> sumOfDigits = sum . map (read . (:[])) . show
+> import Digits
 
-> main = let result = sumOfDigits $ 2^1000
->        in return result
+> main :: IO ()
+> main = let result = sumOfDigits $ 2^(1000 :: Integer)
+>        in do print result
+>              return ()
 
 
 Answer

@@ -13,8 +13,12 @@ Code
 
 > import Data.Numbers.Primes
 
-> main = let result = last . primeFactors $ 600851475143
->        in return result
+> main :: IO ()
+> main = let result = last
+>                   $ primeFactors 600851475143
+>                   :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

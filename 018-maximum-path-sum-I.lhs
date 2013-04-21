@@ -39,6 +39,7 @@ clever method! ;o)
 Code
 ----
 
+> triangle :: [[Int]]
 > triangle = [[75]
 >            ,[95,64]
 >            ,[17,47,82]
@@ -59,8 +60,10 @@ Code
 > step lower higher = let maxs = zipWith max lower (tail lower)
 >                     in zipWith (+) maxs higher
 
+> main :: IO ()
 > main = let result = head . foldl1 step $ reverse triangle
->        in return result
+>        in do print result
+>              return ()
 
 
 Answer

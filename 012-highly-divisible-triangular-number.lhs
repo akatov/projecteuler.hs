@@ -28,14 +28,19 @@ divisors?
 Code
 ----
 
+> import Divisors
+
+> triangularNumbers :: [Integer]
 > triangularNumbers = scanl1 (+) [1..]
 
-> numDivisors n = 2 * length [ x
->                            | x <- [1 .. (floor . sqrt . fromIntegral $ n)]
->                            , mod n x == 0 ]
+> numDivisors :: Integer -> Int
+> numDivisors = length . divisors
 
-> main = let res = head $ filter (\ n -> numDivisors n > 500) triangularNumbers
->        in return res
+> main :: IO ()
+> main = let res = head
+>                $ filter (\ n -> numDivisors n > 500) triangularNumbers
+>        in do print res
+>              return ()
 
 
 Answer

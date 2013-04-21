@@ -26,10 +26,12 @@ Code
 > import Data.List
 > import Data.Numbers.Primes
 
+> longDivision :: Integral alpha => alpha -> alpha -> [(alpha, alpha)]
 > longDivision x y | x == 0    = []
 >                  | otherwise = let (d, m) = divMod x y
 >                                in (d, m) : longDivision (m * 10) y
 
+> cycleLength :: Int -> Int -> Int
 > cycleLength x y = let decimable n = isInfixOf (nub $ primeFactors n) [2, 5]
 >                       ms = drop y . map snd $ longDivision x y
 >                       -- longest cycle of different remainders is y
@@ -37,11 +39,13 @@ Code
 >                      then 0
 >                      else elemIndices (head ms) ms !! 1
 
+> main :: IO ()
 > main = let cs = map (cycleLength 1) [2..999]
 >            m = maximum cs
 >            i = head $ elemIndices m cs
 >            r = i + 2
->        in return r
+>        in do print r
+>              return ()
 
 
 Answer

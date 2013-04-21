@@ -20,15 +20,21 @@ this limit.
 Find the sum of all the positive integers which cannot be written as the sum of
 two abundant numbers.
 
-> import Data.Numbers.Primes
 > import Divisors
 
+> ans :: [Integer]
 > ans = filter abundant [1 ..]
 
-> isSumOfTwoAns n = not $ null [x | x <- takeWhile (< n) ans, abundant (n - x)]
+> isSumOfTwoAns :: Integer -> Bool
+> isSumOfTwoAns n = not $ null [ x
+>                            | x <- takeWhile (< n) ans
+>                            , abundant (n - x)
+>                            ]
 
-> main = let result = sum . filter (not . isSumOfTwoAns) $ [1 .. 28123]
->        in return result
+> main :: IO ()
+> main = let result = sum $ filter (not . isSumOfTwoAns) [1 .. 28123]
+>        in do print result
+>              return ()
 
 
 Answer

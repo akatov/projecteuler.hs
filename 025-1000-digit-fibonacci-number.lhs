@@ -29,16 +29,15 @@ What is the first term in the Fibonacci sequence to contain 1000 digits?
 Code
 ----
 
-> import Numeric.Search.Integer
+> import Fibonacci
+> import Digits
 
-> fibs = 0 : scanl (+) 1 fibs
-
-> discreteLog base n = searchFrom (\ k -> base ^ k > n) 0
-
-> digits = discreteLog 10
-
-> main = let result = length $ takeWhile (\ x -> digits x < 1000) fibs
->        in return result
+> main :: IO ()
+> main = let result = length
+>                   $ takeWhile (\ x -> numDigits x < 1000) fibs
+>                   :: Int
+>        in do print result
+>              return ()
 
 
 Answer

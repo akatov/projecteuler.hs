@@ -21,6 +21,7 @@ Code
 
 > import Data.List
 
+> curiousFraction :: Integer -> Integer -> Bool
 > curiousFraction n d =
 >     let nn = show n
 >         dd = show d
@@ -40,6 +41,7 @@ Code
 >        d `div` g == dddd `div` gg &&
 >        True
 
+> main :: IO ()
 > main = let cs = filter (uncurry curiousFraction) [ (n, d)
 >                                                  | n <- [11 .. 99]
 >                                                  , d <- [n .. 99]

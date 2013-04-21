@@ -22,10 +22,12 @@ Code
 
 > import Data.List
 
+> pandigital :: Int -> Int -> Int -> Bool
 > pandigital a b c =
 >     let digits = show a ++ show b ++ show c
 >     in "123456789" == sort digits
 
+> pandigitalTriples :: [(Int, Int, Int)]
 > pandigitalTriples =
 >     [ (a, b, c)
 >     | a <- [1 .. 9]
@@ -40,7 +42,8 @@ Code
 >     , pandigital a b c
 >     ]
 
-> main = let ps = nub . map (\ (_,_,c) -> c) $ pandigitalTriples
+> main :: IO ()
+> main = let ps = nub $ map (\ (_,_,c) -> c) pandigitalTriples
 >            result = sum ps
 >        in do print result
 >              return ()

@@ -13,13 +13,14 @@ Find the sum of the digits in the number 100!
 Code
 ----
 
-> sumOfDigits :: Integer -> Integer
-> sumOfDigits = sum . map (read . (:[])) . show
+> import Factorial
+> import Digits
 
-> factorial n = product [1 .. n]
-
-> main = let result = sumOfDigits . factorial $ 100
->        in return result
+> main :: IO ()
+> main = let result = sumOfDigits
+>                   $ factorial 100
+>        in do print result
+>              return ()
 
 
 Answer

@@ -22,23 +22,29 @@ How many Sundays fell on the first of the month during the twentieth century
 Code
 ----
 
-> leapyear y = mod y 4 == 0 && (mod y 100 /= 0 || mod y 400 == 0)
+> leapyear :: Int -> Bool
+> leapyear y = mod y 4 == 0
+>            && (mod y 100 /= 0 || mod y 400 == 0)
 
+> daysInMonth :: Int -> Int -> Int
 > daysInMonth y m | m `elem` [9, 4, 6, 11] = 30
 >                 | m == 2 = 28 + if leapyear y then 1 else 0
 >                 | otherwise = 31
 
-> nextMonth y m | m == 12   = (y+1) 1
->               | otherwise = y (m+1)
-
+> weekdayOfNextFirst :: Int -> (Int, Int) -> Int
 > weekdayOfNextFirst weekday (y,m) = mod (weekday + daysInMonth y m) 7
 
-> months = concatMap (\ y -> [(y,m) | m <- [1 .. 12]]) $ iterate (+1) 1900
+> months :: [(Int, Int)]
+> months = concatMap (\ y -> [(y,m) | m <- [1 .. 12]])
+>        $ iterate (+1) 1900
 
+> firstWeekdays :: [Int]
 > firstWeekdays = scanl weekdayOfNextFirst 1 months -- Sunday = 0
 
+> main :: IO ()
 > main = let r = length . filter (== 0) . take 1200 . drop 12 $ firstWeekdays
->        in return r
+>        in do print r
+>              return ()
 
 
 Answer

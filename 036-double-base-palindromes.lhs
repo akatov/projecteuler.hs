@@ -14,7 +14,6 @@ leading zeros.)
 Code
 ----
 
-> import Control.Applicative
 > import Numeric
 
 > showBase :: Integer -> Integer -> String
@@ -26,11 +25,12 @@ Code
 >     in s == reverse s
 
 > isPalindromicNumberInBases :: [Integer] -> Integer -> Bool
-> isPalindromicNumberInBases bs n = all (flip isPalindromicNumberInBase n) bs
+> isPalindromicNumberInBases bs n = all (`isPalindromicNumberInBase` n) bs
 
-> main = let result = sum .
->                     filter (isPalindromicNumberInBases [2, 10]) $
->                     [1 .. 10^6]
+> main :: IO ()
+> main = let result = sum
+>                   $ filter (isPalindromicNumberInBases [2, 10])
+>                     [1 .. 10^(6 :: Integer)]
 >        in do print result
 >              return ()
 

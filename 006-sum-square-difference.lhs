@@ -23,11 +23,16 @@ natural numbers and the square of the sum.
 Code
 ----
 
-> differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo n =
->     ((^2) . sum $ [1..n]) - (sum . map (^2) $ [1..n])
+> differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo :: Integer -> Integer
+> differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo n
+>     = ((^(2 :: Integer)) . sum $ [1..n])
+>     - (sum . map (^(2 :: Integer)) $ [1 .. n])
 
+> main :: IO ()
 > main = let result = differenceBetweenSumOfSquaresAndSquaredSumOfNumbersUpTo 100
->        in return result
+>                   :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

@@ -16,24 +16,25 @@ What is the millionth lexicographic permutation of the digits
 Code
 ----
 
-> insertAt xs y 0 = y:xs
-> insertAt [] y _ = [y]
-> insertAt (x:xs) y n = x : insertAt xs y (n-1)
-
+> selectEach :: [alpha] -> [(alpha, [alpha])]
 > selectEach [x] = [(x, [])]
 > selectEach (x:xs) = let f (y,ys) = (y, x:ys)
 >                     in (x, xs) : map f (selectEach xs)
 
 > -- | the argument is assumed to be in increasing order
+> permutations :: [alpha] -> [[alpha]]
 > permutations [] = [[]]
 > permutations xs = let f (y, ys) = map (y:) $ permutations ys
 >                   in concatMap f $ selectEach xs
 
+> pToInt :: Num alpha => [alpha] -> alpha
 > pToInt [] = 0
 > pToInt (x:xs) = 10 ^ length xs * x + pToInt xs
 
-> main = let result = pToInt $ permutations [0 .. 9] !! 999999
->        in return result
+> main :: IO ()
+> main = let result = pToInt $ permutations [0 .. 9] !! 999999 :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

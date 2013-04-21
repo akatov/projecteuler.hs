@@ -24,9 +24,10 @@ Code
 
 > import Data.List
 
+> main :: IO ()
 > main = let result = length $ nub [ a^b
->                                  | a <- [2 .. 100]
->                                  , b <- [2 .. 100]
+>                                  | a <- [2 .. 100] :: [Integer]
+>                                  , b <- [2 .. 100] :: [Integer]
 >                                  ]
 >        in do print result
 >              return ()

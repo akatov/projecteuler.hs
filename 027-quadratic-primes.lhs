@@ -41,11 +41,13 @@ Code
 > import Data.List
 > import Data.Numbers.Primes
 
-> quadratic a b = \ n -> n ^2 + a * n + b
+> quadratic :: Integer -> Integer -> Integer -> Integer
+> quadratic a b n = n ^(2 :: Integer) + a * n + b
 
-> primeSeqLength (a,b) = length .
->                        takeWhile isPrime $
->                        map (quadratic a b) [0 ..]
+> primeSeqLength :: (Integer, Integer) -> Int
+> primeSeqLength (a,b) = length
+>                      $ takeWhile isPrime
+>                      $ map (quadratic a b) [0 ..]
 
 > cs = [ (l, (a,b))
 >      | b <- takeWhile (< 1000) primes

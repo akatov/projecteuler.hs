@@ -19,8 +19,11 @@ Code
 
 > import Divisors
 
-> main = let result = sum . filter amicable $ [1 .. 10000]
->        in return result
+> main :: IO ()
+> main = let result = sum
+>                   $ filter amicable [1 .. 10000]
+>        in do print result
+>              return ()
 
 
 Answer

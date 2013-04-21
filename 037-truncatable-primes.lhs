@@ -34,24 +34,35 @@ Code
 > import Data.List
 
 > attach :: Integer -> Integer -> Integer
-> attach as bs = as * 10 ^ (length $ show bs) + bs
+> attach as bs = as * 10 ^ length (show bs) + bs
 
-> isLeftTruncatablePrime n = isTruncatableWith n tails
+> isLeftTruncatablePrime :: Integer -> Bool
+> isLeftTruncatablePrime = isTruncatableWith tails
 
-> isRightTruncatablePrime n = isTruncatableWith n inits
+> isRightTruncatablePrime :: Integer -> Bool
+> isRightTruncatablePrime = isTruncatableWith inits
 
-> isTruncatableWith n f =
->     all isPrime . map read . filter (not . null) . f $ show n
+> isTruncatableWith :: (String -> [String]) -> Integer -> Bool
+> isTruncatableWith f = all isPrime
+>                     . map (read :: String -> Integer)
+>                     . filter (not . null)
+>                     . f
+>                     . show
 
-> righTruncatablePrimesStartingWith n
+> rightTruncatablePrimesStartingWith :: Integer -> [Integer]
+> rightTruncatablePrimesStartingWith n
 >     | not $ isRightTruncatablePrime n = []
 >     | otherwise =
->         let os = concatMap (righTruncatablePrimesStartingWith . attach n) [1, 3, 5, 7, 9]
+>         let os = concatMap (rightTruncatablePrimesStartingWith . attach n)
+>                  [1, 3, 5, 7, 9]
 >         in n:os
 
-> rightTruncatablePrimes = concatMap righTruncatablePrimesStartingWith [23, 29, 31, 37, 53, 59, 71, 73, 79]
+> rightTruncatablePrimes :: [Integer]
+> rightTruncatablePrimes = concatMap rightTruncatablePrimesStartingWith
+>                          [23, 29, 31, 37, 53, 59, 71, 73, 79]
 
-> main = let res = sum . filter isLeftTruncatablePrime $ rightTruncatablePrimes
+> main :: IO ()
+> main = let res = sum $ filter isLeftTruncatablePrime rightTruncatablePrimes
 >        in do print res
 >              return ()
 

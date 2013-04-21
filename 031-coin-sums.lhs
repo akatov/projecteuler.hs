@@ -18,8 +18,10 @@ How many different ways can £2 be made using any number of coins?
 Code
 ----
 
+> coins :: [Int]
 > coins = [1, 2, 5, 10, 20, 50, 100, 200]
 
+> numParts :: Int -> Int -> Integer
 > numParts 0 _ = 1
 > numParts n s                  -- s = smallest coin to use
 >     | n < s = 0
@@ -27,6 +29,7 @@ Code
 >         let cs = dropWhile (< s) coins
 >         in sum $ map (\ c -> numParts (n-c) c) cs
 
+> main :: IO ()
 > main = let result = numParts 200 0
 >        in do print result
 >              return ()

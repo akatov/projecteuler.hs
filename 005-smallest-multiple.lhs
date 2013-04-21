@@ -17,21 +17,26 @@ Code
 > import Data.List
 > import Control.Arrow
 
-> f ps [] = ps
-> f [] qs = qs
-> f ((p,a):ps) ((q,b):qs) | p > q = (q,b) : f ((p,a):ps) qs
->                         | p < q = (p,a) : f ps ((q,b):qs)
->                         | otherwise = (p, max a b) : f ps qs
 
-> highestCommonExponents = foldr1 f . map (map (head &&& length) .
->                                          group .
->                                          primeFactors)
+> highestCommonExponents =
+>     let f ps [] = ps
+>         f [] qs = qs
+>         f ((p,a):ps) ((q,b):qs) | p > q = (q,b) : f ((p,a):ps) qs
+>                                 | p < q = (p,a) : f ps ((q,b):qs)
+>                                 | otherwise = (p, max a b) : f ps qs
+>     in foldr1 f .
+>        map (map (head &&& length) . group . primeFactors)
 
+> computeProduct :: [(Integer, Int)] -> Integer
 > computeProduct = let g acc (p,a) = acc * p ^ a
 >                  in foldl g 1
 
-> main = let result = computeProduct . highestCommonExponents $ [1 .. 20]
->        in return result
+> main :: IO ()
+> main = let result = computeProduct
+                    $ highestCommonExponents [1 .. 20]
+>                   :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

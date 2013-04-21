@@ -65,8 +65,8 @@ Code
 >        in array ((0,0), (19,19)) d
 
 > -- | returns a list of lists ls of indexes, where ls has exactly four entries
-> -- | which correspond to four neighbouring cells in a straight line
-> -- | vertically, horizontally or diagonally.
+> -- which correspond to four neighbouring cells in a straight line vertically,
+> -- horizontally or diagonally.
 > indexes :: [[(Int, Int)]]
 > indexes = let verticalIndexes = map (\(x,y) -> [(x,y+z)|z<-[0..3]])
 >                                     [(x,y)|x<-[0..19],y<-[0..16]]
@@ -76,11 +76,14 @@ Code
 >                                      [(x,y)|x<-[0..16],y<-[0..16]]
 >               diagonalIndexes2 = map (\(x,y) -> [(x-z,y+z)|z<-[0..3]])
 >                                      [(x,y)|x<-[3..19],y<-[0..16]]
->           in verticalIndexes ++ horizontalIndexes ++
->              diagonalIndexes1 ++ diagonalIndexes2
+>           in verticalIndexes ++ horizontalIndexes
+>           ++ diagonalIndexes1 ++ diagonalIndexes2
 
-> main = let result = maximum . map (product . map (grid !)) $ indexes
->        in return result
+> main :: IO ()
+> main = let result = maximum
+>                   $ map (product . map (grid !)) indexes
+>        in do print result
+>              return ()
 
 
 Answer

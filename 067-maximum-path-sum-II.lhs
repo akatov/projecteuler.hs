@@ -29,10 +29,6 @@ Code
 
 > import Network.Curl
 
-> step :: [Int] -> [Int] -> [Int]
-> step lower higher = let maxs = zipWith max lower (tail lower)
->                     in zipWith (+) maxs higher
-
 > downStep :: [Int] -> [Int] -> [Int]
 > downStep higher lower = let a = zipWith (+) (minBound:higher) lower
 >                             b = zipWith (+) (higher++[minBound]) lower
@@ -41,10 +37,13 @@ Code
 > lineToInts :: String -> [Int]
 > lineToInts = map read . words
 
+> computeResult :: String -> Int
 > computeResult = maximum . foldl1 downStep . map lineToInts . lines
 
+> main :: IO ()
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/triangle.txt" []
->           return $ computeResult s
+>           print $ computeResult s
+>           return ()
 
 
 Answer

@@ -15,13 +15,15 @@ four million, find the sum of the even-valued terms.
 Code
 ----
 
-> fibs = 0 : scanl (+) 1 fibs
+> import Fibonacci
 
-> main = let result = (sum .
->                      filter (\x -> mod x 2 == 0) .
->                      takeWhile (<= 4000000))
->                     fibs
->        in return result
+> main :: IO ()
+> main = let result = sum
+>                   $ filter (\x -> mod x 2 == 0)
+>                   $ takeWhile (<= 4000000) fibs
+>                   :: Integer
+>        in do print result
+>              return ()
 
 
 Answer

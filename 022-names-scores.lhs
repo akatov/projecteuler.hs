@@ -24,12 +24,17 @@ Code
 > readNames :: String -> [String]
 > readNames = map read . splitOn ","
 
+> score :: String -> Int
 > score = foldl (\ a c -> a + ord c - 64) 0 -- capital letters only
 
+> computeResult :: String -> Int
 > computeResult = sum . zipWith (*) [1..] . map score . sort . readNames
 
+> main :: IO ()
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/names.txt" []
->           return $ computeResult s
+>           print $ computeResult s
+>           return ()
+>                  
 
 
 Answer

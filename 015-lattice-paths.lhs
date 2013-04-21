@@ -20,14 +20,18 @@ We need to perform 20 moves to the right out of a total 40 moves. The answer is
 Code
 ----
 
-> factorial n = product [1..n]
+> import Factorial
 
+> choose :: Integer -> Integer -> Integer
 > choose n k = div (factorial n) (factorial k * factorial (n - k))
 
+> pathsThruGrid :: Integer -> Integer -> Integer
 > pathsThruGrid x y = choose (x + y) x
 
+> main :: IO ()
 > main = let result = pathsThruGrid 20 20
->        in return result
+>        in do print result
+>              return ()
 
 
 Answer
