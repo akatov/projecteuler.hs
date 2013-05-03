@@ -31,8 +31,7 @@ Code
 
 > main :: IO ()
 > main = let result = numParts 200 0
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -43,8 +43,7 @@ Code
 
 > main :: IO ()
 > main = let r = length . filter (== 0) . take 1200 . drop 12 $ firstWeekdays
->        in do print r
->              return ()
+>        in print r
 
 
 Answer

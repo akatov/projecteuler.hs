@@ -45,8 +45,7 @@ Code
 > main :: IO ()
 > main = let ps = nub $ map (\ (_,_,c) -> c) pandigitalTriples
 >            result = sum ps
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

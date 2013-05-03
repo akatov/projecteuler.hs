@@ -60,8 +60,7 @@ Code
 
 > main = let (_, (a,b)) = maximumBy cmp cs
 >            res = a * b 
->        in do print res
->              return ()
+>        in print res
 
 
 Answer

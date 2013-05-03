@@ -36,8 +36,7 @@ Code
 > main = let result = length
 >                   $ takeWhile (\ x -> numDigits x < 1000) fibs
 >                   :: Int
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

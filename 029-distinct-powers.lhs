@@ -29,8 +29,7 @@ Code
 >                                  | a <- [2 .. 100] :: [Integer]
 >                                  , b <- [2 .. 100] :: [Integer]
 >                                  ]
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

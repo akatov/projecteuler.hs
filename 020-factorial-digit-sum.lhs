@@ -19,8 +19,7 @@ Code
 > main :: IO ()
 > main = let result = sumOfDigits
 >                   $ factorial 100
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

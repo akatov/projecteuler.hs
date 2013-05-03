@@ -30,8 +30,7 @@ Code
 
 > main :: IO ()
 > main = let result = pathsThruGrid 20 20
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

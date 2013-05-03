@@ -49,8 +49,7 @@ Code
 >            (p,q)  = foldl1 (\ (a,b) (c,d) -> (a*c, b*d)) cs
 >            g = gcd p q
 >            result = q `div` g
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

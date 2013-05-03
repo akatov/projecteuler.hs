@@ -82,8 +82,7 @@ Code
 > main :: IO ()
 > main = let result = maximum
 >                   $ map (product . map (grid !)) indexes
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

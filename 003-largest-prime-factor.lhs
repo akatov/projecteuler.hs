@@ -17,8 +17,7 @@ Code
 > main = let result = last
 >                   $ primeFactors 600851475143
 >                   :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

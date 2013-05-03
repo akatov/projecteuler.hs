@@ -17,8 +17,7 @@ Code
 > main = let result = sum
 >                   $ takeWhile (< 2000000) primes
 >                   :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -31,8 +31,7 @@ Code
 > main = let result = sum
 >                   $ filter (isPalindromicNumberInBases [2, 10])
 >                     [1 .. 10^(6 :: Integer)]
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

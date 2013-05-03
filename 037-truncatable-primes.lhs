@@ -63,8 +63,7 @@ Code
 
 > main :: IO ()
 > main = let res = sum $ filter isLeftTruncatablePrime rightTruncatablePrimes
->        in do print res
->              return ()
+>        in print res
 
 
 Answer

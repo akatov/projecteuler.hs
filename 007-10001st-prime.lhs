@@ -16,8 +16,7 @@ Code
 
 > main :: IO ()
 > main = let result = primes !! 10000 :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

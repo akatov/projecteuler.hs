@@ -53,8 +53,7 @@ Code
 >              . filter (/= ' ')
 >              . filter (/= '-')
 >              $ concatMap say [1 .. 1000]
->        in do print r
->              return ()
+>        in print r
 
 
 Answer

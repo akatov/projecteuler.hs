@@ -22,8 +22,7 @@ Code
 >                   $ filter (\x -> mod x 2 == 0)
 >                   $ takeWhile (<= 4000000) fibs
 >                   :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -33,8 +33,6 @@ Code
 > main :: IO ()
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/names.txt" []
 >           print $ computeResult s
->           return ()
->                  
 
 
 Answer

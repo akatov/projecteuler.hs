@@ -17,8 +17,7 @@ Code
 >                   $ filter (\x -> mod x 5 == 0 || mod x 3 == 0)
 >                   $ takeWhile (< 1000) [1 ..]
 >                   :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

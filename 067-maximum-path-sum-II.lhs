@@ -43,7 +43,6 @@ Code
 > main :: IO ()
 > main = do (_, s) <- curlGetString "http://projecteuler.net/project/triangle.txt" []
 >           print $ computeResult s
->           return ()
 
 
 Answer

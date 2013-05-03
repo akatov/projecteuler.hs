@@ -35,8 +35,7 @@ Code
 > main = let result = computeProduct
                     $ highestCommonExponents [1 .. 20]
 >                   :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

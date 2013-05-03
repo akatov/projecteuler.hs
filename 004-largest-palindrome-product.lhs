@@ -42,8 +42,7 @@ Code
 > main = let result = head
 >                   $ filter isPalindromicNumber
 >                   $ h 100 999
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

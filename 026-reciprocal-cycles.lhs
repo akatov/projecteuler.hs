@@ -44,8 +44,7 @@ Code
 >            m = maximum cs
 >            i = head $ elemIndices m cs
 >            r = i + 2
->        in do print r
->              return ()
+>        in print r
 
 
 Answer

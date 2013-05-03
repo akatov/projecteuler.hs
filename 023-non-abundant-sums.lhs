@@ -33,8 +33,7 @@ two abundant numbers.
 
 > main :: IO ()
 > main = let result = sum $ filter (not . isSumOfTwoAns) [1 .. 28123]
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -30,8 +30,7 @@ Code
 
 > main :: IO ()
 > main = let result = sum $ filter curious [1 .. 7 * factorial 9]
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -33,8 +33,7 @@ Code
 > main :: IO ()
 > main = let result = sum
 >                   $ take (stepsForSpiralOfSize 1001) diagonalNumbers
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

@@ -214,8 +214,7 @@ Code
 >                , 53503534226472524250874054075591789781264330331690
 >                ] :: Integer
 >            result = read . take 10 $ show s :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

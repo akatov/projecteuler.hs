@@ -38,8 +38,7 @@ Code
 >            mx = maximum $ take 1000000 csls
 >            Just ix = elemIndex mx csls
 >            result = ix + 1
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

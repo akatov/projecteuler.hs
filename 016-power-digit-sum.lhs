@@ -15,8 +15,7 @@ Code
 
 > main :: IO ()
 > main = let result = sumOfDigits $ 2^(1000 :: Integer)
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

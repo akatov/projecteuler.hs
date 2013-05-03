@@ -33,8 +33,7 @@ Code
 
 > main :: IO ()
 > main = let result = pToInt $ permutations [0 .. 9] !! 999999 :: Integer
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

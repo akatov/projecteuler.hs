@@ -37,8 +37,7 @@ Code
 > main = let r = product . head . filter pythagoreanTriplet
 >              $ numbersSummingTo 1000
 >              :: Integer
->        in do print r
->              return ()
+>        in print r
 
 
 Answer

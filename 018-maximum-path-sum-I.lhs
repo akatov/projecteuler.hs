@@ -62,8 +62,7 @@ Code
 
 > main :: IO ()
 > main = let result = head . foldl1 step $ reverse triangle
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

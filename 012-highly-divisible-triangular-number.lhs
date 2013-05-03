@@ -39,8 +39,7 @@ Code
 > main :: IO ()
 > main = let res = head
 >                $ filter (\ n -> numDivisors n > 500) triangularNumbers
->        in do print res
->              return ()
+>        in print res
 
 
 Answer

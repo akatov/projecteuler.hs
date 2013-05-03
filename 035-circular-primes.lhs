@@ -32,8 +32,7 @@ Code
 > main = let result = length
 >                   $ filter circularPrime
 >                   $ takeWhile (< 10^(6 :: Integer)) primes
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

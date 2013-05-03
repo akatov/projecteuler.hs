@@ -22,8 +22,7 @@ Code
 > main :: IO ()
 > main = let result = sum
 >                   $ filter amicable [1 .. 10000]
->        in do print result
->              return ()
+>        in print result
 
 
 Answer

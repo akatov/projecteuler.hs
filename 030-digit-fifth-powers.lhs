@@ -35,8 +35,7 @@ Code
 > main :: IO ()
 > main = let r = sum
 >              $ filter (powerSumIsEqualToNumber 5) [10 .. 9^(5 :: Integer) * 6]
->        in do print r
->              return ()
+>        in print r
 
 
 Answer
